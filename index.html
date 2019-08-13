@@ -1,0 +1,406 @@
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<title>portfolio EU</title>
+
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="shortcut icon" type="image/x-icon" href="https://leafletjs.com/examples/quick-start/docs/images/favicon.ico">
+
+    <link rel="stylesheet" href="./leaflet.css" crossorigin="">
+    <script src="./leaflet.js" crossorigin=""></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet"> 
+
+
+</head>
+
+
+<body>
+  <div id="mapid"></div>
+	<style> 
+	#mapid {
+     height: 100%;
+     width: 100vw;
+     }
+    </style>
+<script>
+
+    // Declare Map Object
+    var mymap = L.map('mapid').setView([30.00, 0.00],3);
+
+    //Refeference y tiles
+	L.tileLayer('https://api.mapbox.com/styles/v1/marcoriz/cjz8kx7pj02to1cmqo5k9zwot/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFyY29yaXoiLCJhIjoiY2p5eWJ3NGtsMDF4dDNibXJ5M3lrOTVoYSJ9.EqtBAqNYTGR2T-Zpy1NLsg', {
+		maxZoom: 18,
+		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+		id: 'mapbox.streets'
+	}).addTo(mymap);
+
+
+/*https://api.mapbox.com/styles/v1/marcoriz/cjz8kx7pj02to1cmqo5k9zwot.html?fresh=true&title=true&access_token=pk.eyJ1IjoibWFyY29yaXoiLCJhIjoiY2p5eWJ3NGtsMDF4dDNibXJ5M3lrOTVoYSJ9.EqtBAqNYTGR2T-Zpy1NLsg#10.0/42.362400/-71.020000/0
+
+mapbox://styles/marcoriz/cjz8kx7pj02to1cmqo5k9zwot
+
+https://api.mapbox.com/styles/v1/marcoriz/cjz8kx7pj02to1cmqo5k9zwot/wmts?access_token=pk.eyJ1IjoibWFyY29yaXoiLCJhIjoiY2p5eWJ3NGtsMDF4dDNibXJ5M3lrOTVoYSJ9.EqtBAqNYTGR2T-Zpy1NLsg
+
+pk.eyJ1IjoibWFyY29yaXoiLCJhIjoiY2p5eWJ3NGtsMDF4dDNibXJ5M3lrOTVoYSJ9.EqtBAqNYTGR2T-Zpy1NLsg
+
+  */  
+      // Icons
+    var eu_icon = L.icon({
+    iconUrl: 'images/markercircle.png',
+    iconSize: [10, 10],
+    iconAnchor: [5, 5],
+    popupAnchor: [0,-5],
+    });
+
+    var eu_competition = L.icon({
+    iconUrl: 'images/markerempty.png',
+    iconSize: [10, 10],
+    iconAnchor: [5, 5],
+    popupAnchor: [0,-5],
+    });
+	   
+    var marker=L.marker([26.705, -80.033],{icon:eu_icon})
+	.addTo(mymap).bindPopup(
+        '<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2017/04/170426-SWIMMING-POOL-600x229.jpg" alt="West Palm Beach"> <a href="http://ecosistemaurbano.com/portfolio/open-shore/">Open Shore | Downtown West Palm Beach</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([23.718, 90.385],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/dhaka-dcnup/">DHAKA CITY | NEIGHBORHOOD UPGRADING PROJECT</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([-2.895, -79.004],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/febres-cordero/">FEBRES CORDERO | MIXED-USE BUILDING</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([29.079, -110.952],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/idea-hermosillo-revitalization-plan/">IDEA HERMOSILLO | REVITALIZATION PLAN</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.354, -3.548],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/plaza-ecopolis/">ECOPOLIS PLAZA KINDERGARTEN AND NEW PUBLIC SPACE</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.374, -3.630],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/eco-boulevard/">ECO-BOULEVARD</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([31.262, 121.462],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/air-tree/">AIR TREE SHANGHAI</a>',{className: 'euPopUp'}
+        );
+   
+    var marker=L.marker([51.816, 4.704],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/energy-carousel/">ENERGY CAROUSEL</a>',{className: 'euPopUp'}
+        );
+    
+    var marker=L.marker([60.796, 11.045],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/dreamhamar/">DREAMHAMAR</a><p><a href="http://ecosistemaurbano.com/portfolio/dreamhamar-cultural-rucksack/">DREAMHAMAR – CULTURAL RUCKSACK</a><p><a href="http://ecosistemaurbano.com/portfolio/dreamhamar-book/">DREAMHAMAR BOOK</a><p><a href="http://ecosistemaurbano.com/portfolio/dreamhamar-expo/">DREAMHAMAR EXPO</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([43.351, -3.014],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/cervecera-fadura/">FADURA COMMUNITY CENTER</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([49.408, 8.688],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/spielraum-der-andere-park/">SPIELRAUM | DER ANDERE PARK</a>',{className: 'euPopUp'}
+        );
+ 
+    var marker=L.marker([-31.606, -60.712],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/santa-fe-resilient/">KIDS PARTICIPATORY ACTIVITY | SANTA FE RESILIENT CITY</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([-2.904,  -79.015],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/cuenca-red-public-space-reactivation-in-ecuador/">CUENCA RED | PUBLIC SPACE REACTIVATION IN ECUADOR</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([23.557, -75.863],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/exuma-garden-of-dreams/">EXUMA GARDEN OF DREAMS</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([43.349, -2.998],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/thinking-fadura/">THINKING FADURA</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([42.361, -71.057],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/networked-urbanism-book/">NETWORKED URBANISM BOOK</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([22.530, 114.047],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/networked-urbanism-uabb-biennale/">NETWORKED URBANISM | UABB BIENNALE</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([14.096, -87.196],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/centro-historico-abierto-reactivating-the-streets-of-tegucigalpa/">REACTIVATING THE HISTORICAL CENTRE OF TEGUCIGALPA!</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([-25.285, -57.639],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/master-plan-for-the-revitalization-of-the-historic-downtown-of-asuncion/">MASTERPLAN OF THE HISTORIC DOWNTOWN OF ASUNCION</a><p><a href="http://ecosistemaurbano.com/portfolio/school-children-participation-kit/">SCHOOL CHILDREN PARTICIPATION KIT</a><p><a href="http://ecosistemaurbano.com/portfolio/asuncion-masterplan-final-exhibition/">ASUNCION MASTERPLAN EXHIBITION</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([48.230, 16.398],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/city-splash-for-copa-cagrana-neue-vienna-waterfront-reactivation/">CITY SPLASH! – VIENNA WATERFRONT REACTIVATION</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([-27.263, -55.913],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/encarnacion-sustainable-development-master-plan/">ENCARNACION SUSTAINABLE DEVELOPMENT MASTER PLAN</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([-25.288, -57.619],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/asuncion-masterplan-participatory-process/">ASULAB – URBAN LAB FOR A PARTICIPATORY FUTURE</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([51.671, 39.233],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/voronezh-sea-revitalization/">VORONEZH SEA REVITALIZATION</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([22.280, 114.167],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/workshop-at-hkdi/">COLLABORATIVE INSTALLATION AT HONG KONG DESIGN INSTITUTE</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([41.389, 2.182],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/shopping-mall-renovation-project-barcelona/">SHOPPING MALL RENOVATION PROJECT – BARCELONA</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([14.108, -87.208],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/wall-of-dreams-installation-at-min-museum/">WALL OF DREAMS | INSTALLATION AT MIN MUSEUM</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([24.721, 46.719],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/new-workspace-and-retail-design/">NEW WORKSPACE AND RETAIL DESIGN</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([41.883, -87.631],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/chatter-architecture-talks-back/">CHATTER: ARCHITECTURE TALKS BACK</a>',{className: 'euPopUp'}
+        );
+   
+    var marker=L.marker([59.911,  10.740],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/bikeline/">BIKELINE</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.414,  -3.721],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/casa-vargas-urban-reactivation/">CASA VARGAS URBAN REACTIVATION</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([52.517,  13.389],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/formula-x-exhibition-at-daz/">FORMULA X EXHIBITION AT DAZ</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([41.650, -0.884],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/galicia-pavilion-at-zaragoza-expo-2008/">GALICIA PAVILION AT ZARAGOZA EXPO 2008</a><p><a href="http://ecosistemaurbano.com/portfolio/waterpark/">WATERPARK EXPO 2008 ZARAGOZA</a><p><a href="http://ecosistemaurbano.com/portfolio/eu-tv-expo/">EU TV EXPO</a><p><a href="http://ecosistemaurbano.com/portfolio/eco-mobiliario/">ECO-FURNITURE</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([0.390, 9.441],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/libreligne-urban-acupunture-in-libreville/">WATERFONT TRANSFORMATION FOR THE CITY OF LIBREVILLE</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([51.036, 2.374],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/urban-scenario-placette-salengro/">URBAN SCENARIO PLACETTE SALENGRO</a>',{className: 'euPopUp'}
+        );
+    
+    var marker=L.marker([44.703, 10.643],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/reggio-children-school/">REGGIO CHILDREN SCHOOL</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([55.405, 10.385],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/odense-thomas-b-thriges-gade/">ODENSE STREET REMODELLING STRATEGY</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([56.155, 10.206],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/gellerup-gror/">GELLERUP GROR LANDSCAPE AND URBAN REVITALIZATION</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([45.429, 12.356],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/biennale-venezia/">2012 VENICE ARCHITECTURE BIENNALE</a><p><a href="http://ecosistemaurbano.com/portfolio/2008-venice-architecture-biennale/">2008 VENICE ARCHITECTURE BIENNALE</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([37.529, 126.973],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/transformer-taekwondo-arena/">TRANSFORMER TAEKWONDO ARENA</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([59.905, 10.739],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/arkitekturimport-exhibition/">ARKITEKTURIMPORT EXHIBITION</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([31.290, 121.519],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/aerogenerators-windmills/">AEROGENERATORS – WINDMILLS</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.42162, -3.71763],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/ecosistema-urbano-office/">ECOSISTEMA URBANO OFFICE</a><p><a href="http://ecosistemaurbano.com/portfolio/localin/">LOCAL_IN, ONLINE MAPPING TOOL</a><p><a href="http://ecosistemaurbano.com/portfolio/usde-urban-social-design-experience/">USDE (Urban Social Design Experience)</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.413, -3.703],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/madrid-centro/">MADRID CENTRO</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.424, -3.700],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/urban-plan-for-the-fuencarral-axis/">URBAN PLAN FOR THE FUENCARRAL AXIS</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([31.290, 121.519],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/spanish-pavilion/">SPANISH PAVILION EXPO 2010 SHANGHAI</a><p><a href="http://ecosistemaurbano.com/portfolio/madrid-chair/">MADRID CHAIR</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.411, -3.705],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/monoespacios-book-launch-and-exhibition/">MONOESPACIOS BOOK LAUNCH AND EXHIBITION</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([39.949, -75.154],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/ecological-reconfiguration-of-an-urban-center/">ECOLOGICAL RECONFIGURATION OF AN URBAN CENTER</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([39.949, -75.154],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/ecological-reconfiguration-of-an-urban-center/">ECOLOGICAL RECONFIGURATION OF AN URBAN CENTER</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([54.698, 11.946],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/marielyst-strand/">MARIELYST STRAND</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.3908, -3.6969],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/la-noche-de-los-ninos/">LA NOCHE DE LOS NIÑOS</a><p><a href="http://ecosistemaurbano.com/portfolio/the-city-as-a-playground/">THE CITY AS A PLAYGROUND</a><p><a href="http://ecosistemaurbano.com/portfolio/this-is-not-an-umbrella/">THIS IS NOT AN UMBRELLA</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([55.685, 12.586],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/renovation-project-of-albertslund-syd-neighborhood-2/">RENOVATION OF ALBERTSLUND SYD NEIGHBORHOOD</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([55.930, 12.514],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/what-if-cities/">WHAT IF…? CITIES EXHIBITION</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([55.931, 12.472],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/master-plan-for-kokkedal/">MASTER PLAN FOR KOKKEDAL</a>',{className: 'euPopUp'}
+        );
+    
+    var marker=L.marker([27.974, -15.606],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/bienal-de-arquitectura-arte-y-paisaje-canarias/">BIENAL DE ARQUITECTURA, ARTE Y PAISAJE CANARIAS</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([46.551, 15.640],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/regeneration-of-a-former-landfill/">REGENERATION OF A FORMER LANDFILL</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.419, -3.701],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/gran-viacommons/">GRAN VÍA COMMONS</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.421, -3.705],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/temporary-beach-on-the-moon-square/">TEMPORARY BEACH ON THE MOON SQUARE</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.491, -3.370],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/parkeing/">PARKEING</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([67.854, 20.225],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/master-plan-for-kiruna/">MASTER PLAN FOR KIRUNA</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([52.512, 13.354],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/kleiner-tiergarten/">KLEINER TIERGARTEN</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.551, -3.330],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/rain-water-park/">RAIN WATER PARK</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.408, -3.694],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/bioclimatic-improvement-strategies-for-public-spaces/">BIOCLIMATIC IMPROVEMENT STRATEGY FOR PUBLIC SPACES</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([43.552, -6.063],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/house-of-steel-and-wood/">HOUSE OF STEEL AND WOOD</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.406, -3.694],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/aemet/">AEMET-MAIN HALL RENOVATION</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([28.448, -16.278],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/cmt-canarias/">CMT CANARIAS</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.414, -3.705],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/meteorological-museum/">METEOROLOGICAL MUSEUM</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([43.2604, -2.9360],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/meteorological-museum/">MULTIPURPOSE ROOF AREA</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([48.302, 14.288],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/urban-switch/">URBAN SWITCH</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.508,-3.699],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/deutsche-schule/">DEUTSCHE SCHULE</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([39.464,-0.359],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/americas-cup/">AMERICA’S CUP TEMPORARY PUBLIC SPACE</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.392,-3.667],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/urban-proposal/">ECO-NEIBOURHOOD SAN DIEGO. URBAN REVITALIZATION.</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([43.556,-5.925],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/resetting-of-an-industrial-zone/">RESETTING OF AN INDUSTRIAL AREA.</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([38.478,-0.790],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/urban-proposal-2/">ELDA URBAN REVITALIZATION.</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([19.464,-99.143],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/chapultepec-park/">CHAPULTEPEC URBAN PARK.</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([19.432,-99.133],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/oxygen-tree/">OXYGEN TREE MEXICO DF.</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.408,-3.706],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/urban-box-strategy/">URBAN BOX STRATEGY.</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.414,-3.698],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/intermediae-prado/">INTERMEDIAE PRADO.</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([41.392,2.168],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/exhibition-at-the-association-of-architects-of-catalonia-coac/">EXHIBITION AT THE ASSOCIATION OF ARCHITECTS OF CATALONIA.</a>',{className: 'euPopUp'}
+        );
+
+    var marker=L.marker([40.298,-3.837],{icon:eu_competition})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/optimization-of-public-space/">OPTIMIZATION OF PUBLIC SPACE.</a>',{className: 'euPopUp'}
+        );
+
+/*
+    var marker=L.marker([40.419, -3.701],{icon:eu_icon})
+    .addTo(mymap).bindPopup('<a href="http://ecosistemaurbano.com/portfolio/the-city-as-a-playground/">THE CITY AS A PLAYGROUND</a>');
+
+
+
+
+/*
+
+	var popup = L.popup();
+
+	function onMapClick(e) {
+		popup
+			.setLatLng(e.latlng)
+			.setContent("You clicked the map at " + e.latlng.toString())
+			.openOn(mymap);
+	}
+
+	mymap.on('click', onMapClick);
+*/
+</script>
+</body>
+</html>
