@@ -21,19 +21,24 @@
   <div id="mapid"></div>
 	<style> 
 	#mapid {
-     height: 100%;
-     width: 100vw;
+     width: 100%;
+     height: 90vh;
      }
     </style>
 <script>
 
     // Declare Map Object
+    var desktop =window.innerWidth > 768;
+    console.log(desktop);
     var mymap = L.map('mapid', {
         center: [30.00, 0.00],
-        zoom: 3,
-        scrollWheelZoom: false
-
+        zoom: desktop ? 3 : 1,
+        scrollWheelZoom: false,
+        dragging: false
     });
+
+    mymap.once('focus', function() { mymap.scrollWheelZoom.enable(); });
+    mymap.once('focus', function() { mymap.dragging.enable(); });
 
     //Refeference y tiles
 	L.tileLayer('https://api.mapbox.com/styles/v1/marcoriz/cjz8kx7pj02to1cmqo5k9zwot/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFyY29yaXoiLCJhIjoiY2p5eWJ3NGtsMDF4dDNibXJ5M3lrOTVoYSJ9.EqtBAqNYTGR2T-Zpy1NLsg', {
@@ -44,17 +49,37 @@
 		id: 'mapbox.streets'
 	}).addTo(mymap);
 
-
       // Icons
     var eu_icon = L.icon({
-    iconUrl: 'images/markercircle.png',
+    iconUrl: 'images/marker1.png',
+    iconSize: [10, 10],
+    iconAnchor: [5, 5],
+    popupAnchor: [0,-5],
+    });
+
+    var eu_inprocess = L.icon({
+    iconUrl: 'images/marker2.png',
     iconSize: [10, 10],
     iconAnchor: [5, 5],
     popupAnchor: [0,-5],
     });
 
     var eu_competition = L.icon({
-    iconUrl: 'images/markerempty.png',
+    iconUrl: 'images/marker3.png',
+    iconSize: [10, 10],
+    iconAnchor: [5, 5],
+    popupAnchor: [0,-5],
+    });
+
+    var eu_workshop = L.icon({
+    iconUrl: 'images/marker4.png',
+    iconSize: [10, 10],
+    iconAnchor: [5, 5],
+    popupAnchor: [0,-5],
+    });
+
+    var eu_exhibition = L.icon({
+    iconUrl: 'images/marker5.png',
     iconSize: [10, 10],
     iconAnchor: [5, 5],
     popupAnchor: [0,-5],
@@ -62,15 +87,15 @@
 	   
     var marker=L.marker([26.705, -80.033],{icon:eu_icon})
 	.addTo(mymap).bindPopup(
-        '<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2017/04/170426-SWIMMING-POOL-600x229.jpg" alt="West Palm Beach"> <a href="https://ecosistemaurbano.com/portfolio/open-shore/">Open Shore | Downtown West Palm Beach</a>',{className: 'euPopUp', minWidth: 300, minWidth: 300}
+        '<img src="https://ecosistemaurbano.com/wp-content/uploads/2017/04/170426-SWIMMING-POOL.jpg" alt="West Palm Beach"> <a href="https://ecosistemaurbano.com/portfolio/open-shore/">Open Shore | Downtown West Palm Beach</a>',{className: 'euPopUp', minWidth: 300, minWidth: 300}
         );
 
     var marker=L.marker([23.718, 90.385],{icon:eu_icon})
-    .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2018/10/DHK-Fotomontaje-Spaces-600x338.png"> <a href="https://ecosistemaurbano.com/portfolio/dhaka-dcnup/">Dhaka City Neighborhood Upgrading Project</a>',{className: 'euPopUp', minWidth: 300}
+    .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/wp-content/uploads/2018/10/DHK-Fotomontaje-Buildings-1024x576.png"> <a href="https://ecosistemaurbano.com/portfolio/dhaka-dcnup/">Dhaka City Neighborhood Upgrading Project</a>',{className: 'euPopUp', minWidth: 300}
         );
 
     var marker=L.marker([-2.895, -79.004],{icon:eu_icon})
-    .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2018/03/170518-PATRIMONIAL-Y-NUEVO_CELOSIA-600x330.jpg"> <a href="https://ecosistemaurbano.com/portfolio/febres-cordero/">Febres Cordero Mixed-use Building</a>',{className: 'euPopUp', minWidth: 300}
+    .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/wp-content/uploads/2018/03/170518-PATRIMONIAL-Y-NUEVO_CELOSIA-1024x564.jpg"> <a href="https://ecosistemaurbano.com/portfolio/febres-cordero/">Febres Cordero Mixed-use Building</a>',{className: 'euPopUp', minWidth: 300}
         );
 
     var marker=L.marker([29.079, -110.952],{icon:eu_icon})
@@ -105,7 +130,7 @@
     .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2018/03/ecosistemaurbano-Heidelberg-02-600x266.jpg"> <a href="https://ecosistemaurbano.com/portfolio/spielraum-der-andere-park/">Spielraum | Der Andere Park</a>',{className: 'euPopUp', minWidth: 300}
         );
  
-    var marker=L.marker([-31.606, -60.712],{icon:eu_icon})
+    var marker=L.marker([-31.606, -60.712],{icon:eu_workshop})
     .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2014/07/header-600x343.jpg"> <a href="https://ecosistemaurbano.com/portfolio/santa-fe-resilient/">Kids Participatory Activity | Santa Fe Resilient City</a>',{className: 'euPopUp', minWidth: 300}
         );
 
@@ -125,7 +150,7 @@
     .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2015/12/NetworkedUrbanism-600x395.jpg"> <a href="https://ecosistemaurbano.com/portfolio/networked-urbanism-book/">Networked Urbanism Book</a>',{className: 'euPopUp', minWidth: 300}
         );
 
-    var marker=L.marker([22.530, 114.047],{icon:eu_icon})
+    var marker=L.marker([22.530, 114.047],{icon:eu_exhibition})
     .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2015/12/overall-view-600x256.jpg"> <a href="https://ecosistemaurbano.com/portfolio/networked-urbanism-uabb-biennale/">Networked Urbanism Uabb Biennale</a>',{className: 'euPopUp', minWidth: 300}
         );
 
@@ -133,7 +158,7 @@
     .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2015/11/informe-3-600x425.jpg"> <a href="https://ecosistemaurbano.com/portfolio/centro-historico-abierto-reactivating-the-streets-of-tegucigalpa/">Reactivating The Historical Centre Of Tegucigalpa!</a>',{className: 'euPopUp', minWidth: 300}
         );
 
-    var marker=L.marker([-25.285, -57.639],{icon:eu_icon})
+    var marker=L.marker([-25.285, -57.639],{icon:eu_inprocess})
     .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2015/01/10-PUERTO-VIVO-600x424.jpg"> <a href="https://ecosistemaurbano.com/portfolio/master-plan-for-the-revitalization-of-the-historic-downtown-of-asuncion/">Masterplan Of The Historic Downtown Of Asuncion</a><p><a href="https://ecosistemaurbano.com/portfolio/school-children-participation-kit/">School Children Participation Kit</a><p><a href="https://ecosistemaurbano.com/portfolio/asuncion-masterplan-final-exhibition/">Asuncion Masterplan Exhibition</a>',{className: 'euPopUp', minWidth: 300}
         );
 
@@ -145,7 +170,7 @@
     .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2015/03/portada-600x374.jpg"> <a href="https://ecosistemaurbano.com/portfolio/encarnacion-sustainable-development-master-plan/">Encarnacion Sustainable Development Master Plan</a>',{className: 'euPopUp', minWidth: 300}
         );
 
-    var marker=L.marker([-25.288, -57.619],{icon:eu_icon})
+    var marker=L.marker([-25.288, -57.619],{icon:eu_inprocess})
     .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2015/05/MG_1391-600x400.jpg"> <a href="https://ecosistemaurbano.com/portfolio/asuncion-masterplan-participatory-process/">Asulab – Urban Lab For A Participatory Future</a>',{className: 'euPopUp', minWidth: 300}
         );
 
@@ -153,7 +178,7 @@
     .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2014/11/Leasure-Island-Aerial1-600x405.jpg"> <a href="https://ecosistemaurbano.com/portfolio/voronezh-sea-revitalization/">Voronezh Sea Revitalization</a>',{className: 'euPopUp', minWidth: 300}
         );
 
-    var marker=L.marker([22.280, 114.167],{icon:eu_icon})
+    var marker=L.marker([22.280, 114.167],{icon:eu_workshop})
     .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2015/02/headpic-600x370.jpg"> <a href="https://ecosistemaurbano.com/portfolio/workshop-at-hkdi/">Collaborative Installation At Hong Kong Design Institute</a>',{className: 'euPopUp', minWidth: 300}
         );
 
@@ -161,7 +186,7 @@
     .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2015/02/headpic-600x370.jpg"> <a href="https://ecosistemaurbano.com/portfolio/shopping-mall-renovation-project-barcelona/">Shopping Mall Renovation Project – Barcelona</a>',{className: 'euPopUp', minWidth: 300}
         );
 
-    var marker=L.marker([14.108, -87.208],{icon:eu_icon})
+    var marker=L.marker([14.108, -87.208],{icon:eu_exhibition})
     .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2015/08/DSC_0199-600x377.jpg"> <a href="https://ecosistemaurbano.com/portfolio/wall-of-dreams-installation-at-min-museum/">Wall Of Dreams Installation At Min Museum</a>',{className: 'euPopUp', minWidth: 300}
         );
 
@@ -372,6 +397,29 @@
     var marker=L.marker([40.298,-3.837],{icon:eu_competition})
     .addTo(mymap).bindPopup('<img src="https://ecosistemaurbano.com/portfolio/wp-content/uploads/2012/12/OPTIMIZATION-OF-PUBLIC-SPACELORANCA04-600x265.png"> <a href="https://ecosistemaurbano.com/portfolio/optimization-of-public-space/">Optimization Of Public Space</a>',{className: 'euPopUp', minWidth: 300}
         );
+/*
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (mymap) {
+
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML = '<i class="circle" style= "background:#F73134"> </i> Completed<br> <i class="circle" style="background:#ff0000"> </i> In Process<br>  <i class="circle" style="background:#ff0000"> </i> Competition<br> <i class="circle" style="background:#1EBAB6"> </i> Workshop<br> <i class="circle" style="background:#303030"> </i> Exhibition<br> ';
+    return div;
+};
+
+legend.addTo(mymap);
+*/
+
+var legend = L.control({position: 'bottomright'});
+
+legend.onAdd = function (mymap) {
+
+    var div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML = '<i class="itemcircle"><img src="images/marker1.png"></i>Completed<br><i class="itemcircle"><img src="images/marker2.png"></i>In Process<br><i class="itemcircle"><img src="images/marker3.png"></i>Competition<br><i class="itemcircle"><img src="images/marker4.png"></i>Workshop<br><i class="itemcircle"><img src="images/marker5.png"></i>Exhibition<br>';
+    return div;
+};
+
+legend.addTo(mymap);
 
 </script>
 </body>
